@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ca82sx18t5rst"]
+
+[ext_resource type="Script" uid="uid://oe5ycs77j1rl" path="res://Scripts/MainMenu.gd" id="1_eiy7p"]
+[ext_resource type="StyleBox" uid="uid://bem61jm41sx1l" path="res://Themes/BtnStyleBoxFlat.tres" id="1_i26rj"]
+
+[node name="MainMenu" type="Control" unique_id=139726958]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eiy7p")
+
+[node name="UIContainer" type="VBoxContainer" parent="." unique_id=1559619446]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -143.0
+offset_right = 155.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TitleLbl" type="Label" parent="UIContainer" unique_id=1046616977]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "TIC-TAC-TOE"
+horizontal_alignment = 1
+
+[node name="PVCBtn" type="Button" parent="UIContainer" unique_id=1344757981]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("1_i26rj")
+text = "Player vs Computer"
+
+[node name="PVPBtn" type="Button" parent="UIContainer" unique_id=1897068986]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("1_i26rj")
+text = "Player vs Player"
+
+[node name="SettingsBtn" type="Button" parent="UIContainer" unique_id=2095377829]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("1_i26rj")
+text = "Settings"
+
+[connection signal="pressed" from="UIContainer/PVCBtn" to="." method="_on_pvc_btn_pressed"]
+[connection signal="pressed" from="UIContainer/PVPBtn" to="." method="_on_pvp_btn_pressed"]
+[connection signal="pressed" from="UIContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]

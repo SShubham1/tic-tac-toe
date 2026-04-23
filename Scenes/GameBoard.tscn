@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://bohltoraqcy2p"]
+
+[ext_resource type="Script" uid="uid://d3fnd3envl56u" path="res://Scripts/GameBoard.gd" id="1_qkiwi"]
+[ext_resource type="FontFile" uid="uid://3fdhnpp0u8hx" path="res://Fonts/OpenSans-SemiBold.ttf" id="2_fkmb8"]
+
+[node name="GameBoard" type="Control" unique_id=343333820]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qkiwi")
+
+[node name="LevelLbl" type="Label" parent="." unique_id=1795265333]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 350.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("2_fkmb8")
+theme_override_font_sizes/font_size = 24
+
+[node name="UIContainer" type="VBoxContainer" parent="." unique_id=415350845]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -143.0
+offset_right = 155.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="StatusLbl" type="Label" parent="UIContainer" unique_id=2128428550]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fkmb8")
+theme_override_font_sizes/font_size = 32
+text = "X turn"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="UIContainer" unique_id=2006870080]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 3
+
+[node name="Button1" type="Button" parent="UIContainer/GridContainer" unique_id=47058527]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button2" type="Button" parent="UIContainer/GridContainer" unique_id=300593786]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button3" type="Button" parent="UIContainer/GridContainer" unique_id=2104766729]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button4" type="Button" parent="UIContainer/GridContainer" unique_id=779441286]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button5" type="Button" parent="UIContainer/GridContainer" unique_id=1699339286]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button6" type="Button" parent="UIContainer/GridContainer" unique_id=129999830]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button7" type="Button" parent="UIContainer/GridContainer" unique_id=2115538372]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button8" type="Button" parent="UIContainer/GridContainer" unique_id=1210259725]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="Button9" type="Button" parent="UIContainer/GridContainer" unique_id=570808953]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="ScoreContainer" type="HBoxContainer" parent="UIContainer" unique_id=15383863]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="XLbl" type="Label" parent="UIContainer/ScoreContainer" unique_id=246409250]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "X: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OLbl" type="Label" parent="UIContainer/ScoreContainer" unique_id=975768450]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "O: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DrawLbl" type="Label" parent="UIContainer/ScoreContainer" unique_id=480776385]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Draw: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CtrlContainer" type="HBoxContainer" parent="UIContainer" unique_id=1503259232]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PlayAgainBtn" type="Button" parent="UIContainer/CtrlContainer" unique_id=1292272850]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Play Again"
+
+[node name="MainMenuBtn" type="Button" parent="UIContainer/CtrlContainer" unique_id=339692328]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Main Menu"
+
+[node name="RestartBtn" type="Button" parent="UIContainer/CtrlContainer" unique_id=1702081575]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Restart"
+
+[connection signal="pressed" from="UIContainer/CtrlContainer/PlayAgainBtn" to="." method="_on_play_again_btn_pressed"]
+[connection signal="pressed" from="UIContainer/CtrlContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="UIContainer/CtrlContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]

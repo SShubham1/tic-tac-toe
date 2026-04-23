@@ -14,4 +14,7 @@ func _on_h_slider_value_changed(value: float) -> void:
 
 
 func _on_exit_btn_pressed() -> void:
-	get_tree().quit()
+	if OS.has_feature("web"):
+		OS.shell_open(Global.PROJECT_LINK) 
+	else:
+		get_tree().quit()

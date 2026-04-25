@@ -28,8 +28,10 @@ var score_draw = 0
 @onready var o_lbl = $UIContainer/ScoreContainer/OLbl
 @onready var draw_lbl = $UIContainer/ScoreContainer/DrawLbl
 @onready var level_lbl = $LevelLbl
+@onready var play_again_btn = $UIContainer/CtrlContainer/PlayAgainBtn
 
 func _ready() -> void:
+	play_again_btn.hide()
 	if Global.game_mode=="PVP":
 		level_lbl.hide()
 	else:
@@ -81,6 +83,7 @@ func check_draw() -> bool:
 
 # --- UI HANDLERS ---
 func handle_win(player: int) -> void:
+	play_again_btn.show()
 	game_active = false
 	if player == 1:
 		status_lbl.text = "Player X Won! 🎉" if Global.game_mode == "PVP" else "You Won! 🎉"
@@ -91,6 +94,7 @@ func handle_win(player: int) -> void:
 	update_scores()
 
 func handle_draw() -> void:
+	play_again_btn.show()
 	game_active = false
 	status_lbl.text = "It's a Draw! 🤝"
 	score_draw += 1
@@ -109,6 +113,7 @@ func update_scores() -> void:
 
 # --- RESET LOGIC ---
 func reset_board() -> void:
+	play_again_btn.hide()
 	board.fill(0)
 	current_player = starting_player
 	game_active = true
@@ -132,8 +137,9 @@ func _on_main_menu_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 func _on_play_again_btn_pressed() -> void:
-	starting_player = -starting_player 
-	reset_board()
+	if !game_active:
+		starting_player = -starting_player 
+		reset_board()
 
 func _on_restart_btn_pressed() -> void:
 	starting_player = 1
